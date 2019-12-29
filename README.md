@@ -149,6 +149,11 @@ function whoIsTheBestIA() {
 
 Your solution:
 
+        const whoIsTheBestIA1= () => {
+        let iaName = 'Sara';
+        console.log(iaName);
+     }
+
 ```js
 
 ```
@@ -164,8 +169,25 @@ Your solution:
 3. Rewrite and use implicit return
 
 Your solution:
+    let fullName=function(first,last){
+    return `${first} ${last}`
+    }
+   
+    let fullName = (first, last ) =>{
+    return `${first} ${last}`;
+    }
+
+    let fullName = (first, last) => `${first} ${last}`;
+
+
 
 ```js
+   const friends = ["Mansour", "Munira", "Ahmed"];
+    // For each friend in friends, print "Hi friendName!"
+    // Write your solution here
+    friends.forEach(function(friend){
+      console.log(`Hi ${friend}`)
+    })
 
 ```
 
@@ -253,6 +275,15 @@ instructors.forEach(function(item){
 
     // Sum all the numbers in nums and save the result in total
     // Write your solution here
+     const nums = [103440, 3799.2663, 3.14159265359, 859494, 59439];
+    let total = 0;
+
+    nums.forEach(function(num){
+      total += num;
+    })
+    console.log(total);
+
+
     ```
 3. Crazy number again!!
     ```js
@@ -265,6 +296,17 @@ instructors.forEach(function(item){
     // in totalNumbersUnder4000
     //
     // Write your solution here
+      const stringNumbers = ["103440", "3799.2663", "3.14159265359", "859494", "59439"];
+    let totalNumbersUnder4000 = 0;
+
+    stringNumbers.forEach(function(num){
+         if (parseFloat(num) < 4000)
+         totalNumbersUnder4000 += parseFloat(num);
+    })
+    console.log(totalNumbersUnder4000)
+
+
+
     ```
 
 **Resources:**
@@ -293,6 +335,13 @@ The `map()` method creates a new array with the results of calling a provided fu
     let times100 = [];
 
     // Write your solution here
+    const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const times100 = nums.map((val ,i ,nums) => {
+    return val *100
+   }
+   );
+    console.log(times100)
+
     ```
 2. Capitalize
     Capitalize all the strings in the IA's array and store them in the array capitalizedIA.
@@ -302,6 +351,11 @@ The `map()` method creates a new array with the results of calling a provided fu
     let capitalizedIAs = [];
 
     // Write your solution here
+
+        const iAS = ['Sara', 'Abdullah', 'Ali', 'Khan'];
+        let capitalizedIAs = [];
+         capitalizedIAs = iAS.map(x => x.toUpperCase())
+         console.log(capitalizedIAs)
     ```
 3. Abbreviations
     ```js
@@ -311,6 +365,12 @@ The `map()` method creates a new array with the results of calling a provided fu
 
     // Find the abbreviation of all days and add them to dayAbbreviations array
     // Write your solution here
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+   let dayAbbreviations = [];
+   dayAbbreviations = days.map(val=>{
+    return val.substring(0,3) ;
+   })
+    console.log(dayAbbreviations)
     ```
 4. century20
     ```js
@@ -319,6 +379,14 @@ The `map()` method creates a new array with the results of calling a provided fu
 
     // century20 should be: [1989, 2000, 1999, 1973]
     // Write your solution here
+        const years = [1989, 2015, 2000, 1999, 2013, 1973, 2012];
+    let century20 =  []; 
+    years.map(x => {
+    if(x<=2000){
+        century20.push(x)
+     }
+    })
+     console.log(century20)
     ```
 
 <hr>
@@ -336,8 +404,9 @@ The `filter()` method creates a new array with all elements that pass the test i
 
 1. Only get the numbers that are divisible by 3
     ```js
+    
     const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    // Write your solution here
+    const result = nums.filter(num => num % 3 ==0)
     console.log(result);
     ```
 2. Create an array of names (maybe use 3 of your friends)
@@ -350,6 +419,8 @@ The `filter()` method creates a new array with all elements that pass the test i
     ```js
     const names = ["Sara", "Abdulrahman", "Eman"];
     // Write your solution here
+    const friends = ['Bandari','Safwan','Ahmed']
+   const names = friends.filter(friend => friend.includes('a') == true)
     console.log(result);
     ```
 3. century20
@@ -359,6 +430,9 @@ The `filter()` method creates a new array with all elements that pass the test i
 
     // century20 should be: [1989, 2000, 1999, 1973]
     // Write your solution here
+    const years = [1989, 2015, 2000, 1999, 2013, 1973, 2012];
+    century20 = years.filter(val => val <= 2000)
+    console.log(century20)
     ```
 
 <hr>
@@ -381,8 +455,11 @@ The `reduce()` method executes a reducer function (that you provide) on each ele
     let sum;
 
     // Write your solution here
+        const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      sum = nums.reduce((acsc,val) => acsc + val )
 
     console.log(sum);
+    
     ```
 2. Crazy Numbers
     ```js
@@ -390,13 +467,23 @@ The `reduce()` method executes a reducer function (that you provide) on each ele
     const nums = [103440, 3799.2663, 3.14159265359, 859494, 59439];
     let total = 0;
 
+
     // Sum all the numbers in nums and save the result in total
     // Write your solution here
+      const stringNumbers = ["103440", "3799.2663", "3.14159265359", "859494", "59439"];
+
+    
+    let total = nums.filter(num => num <= 4000)
+        .reduce((sum, number) => sum + parseFloat(number))
+    
+    console.log(total);
+
     ```
 3. Crazy number again!!
     ```js
     // These crazy numbers now are strings 😯 😯  !!  
     const stringNumbers = ["103440", "3799.2663", "3.14159265359", "859494", "59439"];
+    
     let totalNumbersUnder4000 = 0;
 
     // Convert numbers from strings to numbers and 
@@ -404,6 +491,19 @@ The `reduce()` method executes a reducer function (that you provide) on each ele
     // in totalNumbersUnder4000
     //
     // Write your solution here
+    // Convert numbers from strings to numbers and 
+    // sum all numbers under 4000 and store them 
+    // in totalNumbersUnder4000
+   //
+   // Write your solution here
+    const stringNumbers = ["103440", "3799.2663", "3.14159265359", "859494", "59439"];
+    let totalNumbersUnder4000 = 0;
+
+    stringNumbers.forEach(function(num){
+         if (parseFloat(num) < 4000)
+         totalNumbersUnder4000 += parseFloat(num);
+    })
+    console.log(totalNumbersUnder4000)
     ```
 
 
@@ -426,6 +526,8 @@ const products = [
 ];
 
 // Write your solution here
+let discountProducts;
+discountProducts = products.map(product => product['price'] /2)
 
 console.log(discountProducts);
 ```
@@ -444,8 +546,9 @@ const products = [
 ];
 
 // Write your solution here
-
-console.log(cheapProducts);
+let cheapProducts =[]
+cheapProducts = products.filter(product => product['price'] < 70);
+console.log(cheapProducts   );
 ```
 
 #### Reduce
@@ -477,21 +580,42 @@ const panagram = ['The', 'quick','brown','fox', 'jumps', 'over', 'the', 'lazy', 
 
 const panagrams = [ 'The','job', 'requires', 'extra', 'pluck', 'and', 'zeal', 'from', 'every', 'young', 'wage', 'earner',  'Quick', 'zephyrs', 'blow,', 'vexing', 'daft', 'Jim', 'Two', 'driven', 'jocks', 'help', 'fax', 'my', 'big', 'quiz', 'Five', 'quacking', 'zephyrs', 'jolt', 'my', 'wax', 'bed', 'The', 'five', 'boxing', 'wizards', 'jump', 'quickly', 'Pack', 'my', 'box', 'with', 'five', 'dozen', 'liquor', 'jugs', 'We', 'promptly', 'judged', 'antique', 'ivory', 'buckles', 'for', 'the', 'next', 'prize', 'Jaded', 'zombies', 'acted', 'quaintly', 'but', 'kept','driving','their','oxen','forward' ]
 ```
+your soulotion is here..
+
+     console.log(smallNums.every(x => x >=0));
+     console.log(nums.every(x => x >=0));
+
+       console.log(panagram.every(word => word.length <= 8));
+      console.log(panagrams.every(word => word.length <= 8));
 #### Part 1.
 ##### [every](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every)
 
 - Determine if every number is greater than or equal to 0
+     const everyNumberGreaterThanZero = (currentValue => currentValue > 0)
+     console.log(smallNums.map(everyNumberGreaterThanZero))
 - Determine if every word is shorter than 8 characters
+    const everyWordShorterThan8Character = (word => word.length < 8
+    console.log(panagram.every(everyWordShorterThan8Character))
 
 ##### [filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
 
 - Filter the array for numbers less than 100
 - Filter words that have an even length
 
+   console.log(nums.filter(item => item<=100  ));
+   console.log(panagram.filter(panagram => panagram.length %2== 0));
+    console.log(panagrams.filter(panagram => panagram.length %2== 0));
+
+
+
 ##### [find](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
 
 - Find the first value divisible by 5
 - Find the first word that is longer than 6 characters
+
+   console.log(smallNums.find(element => element%5==0));
+   console.log(nums.find(element => element%5==0));
+   console.log(panagrams.find(element => element.length > 6));
 
 #### Part 2.
 
@@ -499,13 +623,31 @@ const panagrams = [ 'The','job', 'requires', 'extra', 'pluck', 'and', 'zeal', 'f
 - Find the index of the first number that is divisible by 3
 - Find the index of the first word that is less than 2 characters long
 
+   console.log(smallNums.findIndex(element => element%3==0));
+   console.log(nums.findIndex(element => element%3==0));
+
+   console.log(panagram.findIndex(panagram => panagram.length < 2));
+   console.log(panagrams.findIndex(panagram => panagram.length < 2));
+
 ##### [forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
 - `console.log` each value of the nums array multiplied by 3
 - `console.log` each word with an exclamation point at the end of it
 
+    smallNums.forEach(num => console.log(num * 3));
+    nums.forEach(num => console.log(num * 3));
+
+    panagram.forEach(word => console.log(`${word}!`));
+    panagrams.forEach(word => console.log(`${word}!`));
+
+
 ##### [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
 - Make a new array of each number multiplied by 100
 - Make a new array of all the words in all uppercase
+
+     let newSmallNums = smallNums.map(num => num * 100);
+
+     let newPanagram = panagram.map(word => word.toUpperCase());
+
 
 
 #### Part 3.
@@ -514,9 +656,21 @@ const panagrams = [ 'The','job', 'requires', 'extra', 'pluck', 'and', 'zeal', 'f
 - Add all the numbers in the array together using the `reduce` method
 - Concatenate all the words using reduce
 
+     let newSmallNums = smallNums.map(num => num * 100);
+     let newPanagram = panagram.map(word => word.toUpperCase());
+
+     let sentence = panagram.reduce((sen , curr) => `${sen} ${curr}`);
+     let sentence2 = panagrams.reduce((sen , curr) => `${sen} ${curr}`);
+
 ##### [some](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
 - Find out if some numbers are divisible by 7
 - Find out if some words have the letter `a` in them
+   
+   console.log(smallNums.some(element => element%7==0));
+   console.log(nums.some(element => element%7==0));
+
+   console.log(panagram.some(word => word.includes("a")));
+   console.log(panagrams.some(word => word.includes("a")));
 
 ##### [sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
 - Try to sort without any arguments, do you get what you'd expect with the numbers array?
@@ -524,14 +678,33 @@ const panagrams = [ 'The','job', 'requires', 'extra', 'pluck', 'and', 'zeal', 'f
 - Sort the numbers in descending order
 - Sort the words in ascending order
 - Sort the words in descending order
+  console.log(nums.sort()); //without any arguments the array elements are converted to strings, then sorted according to each character's Unicode code point value.
+
+  console.log(nums.sort((a , b) => a - b));//ascending (if a-b >0 that means a needs to be after b , if a-b<0 that means a is before b)
+  console.log(nums.sort((a , b) => b - a ));//descending
+    
+    console.log(panagram.sort((a,b)=> {
+     a = a.toLowerCase();
+     b = b.toLowerCase();
+     if( a == b) return 0;
+     return a < b ? -1 : 1;
+     })); //ascending (take in consideration upper and lower words)
 
 ##### Bonus
 
 - Filter for words that have at least two vowels in them
 - Find each instance of the word zephyr - include case insensitve and plurals (Zephyr, zephyrs, and Zephyrs), and list the index positions
 
+    console.log(panagrams.sort((a,b)=> {
+    a = a.toLowerCase();
+    b = b.toLowerCase();
+    if( a == b) return 0;
+     return a > b ? -1 : 1;
+     })); //descending
+
 ### Recommended Material
 
 - [Destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 - [Rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters)
 - [Spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+     
